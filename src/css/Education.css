@@ -1,0 +1,56 @@
+.section {
+  padding: 40px 20px;
+  background-color: #1f1f1f;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.edu-cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .edu-cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #ff9900;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #ddd7d7;
+}
+
+.card-text {
+  margin-top: 5px;
+  color: white;
+}
+
+.cert-list {
+  padding-left: 20px;
+}
+
+.cert-list li {
+  margin-bottom: 6px;
+  color: white;
+}

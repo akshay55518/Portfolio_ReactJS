@@ -1,0 +1,117 @@
+/* Contact.css */
+
+.contact-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1f1f1f, #1f1f1f); 
+  color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffb400;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.info-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.info-item i {
+  font-size: 1.5rem;
+  color: #38bdf8;
+  margin-right: 15px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 90%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffb400;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.submit-btn {
+  display: block; 
+  margin: 0 auto; 
+  padding: 12px 25px;
+  background: #ffb400;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #f8ba29;
+  transform: scale(1.10);
+}
+
+.contact-link {
+  color: inherit;          
+  text-decoration: none;  
+  cursor: pointer;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.contact-link:hover {
+  color: #ffb400;          
+  text-decoration: underline;
+}

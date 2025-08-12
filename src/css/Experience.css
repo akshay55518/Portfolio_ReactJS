@@ -1,0 +1,50 @@
+.section {
+  padding: 40px 20px;
+  /* background: #1a1a1a; */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #ffcc00;
+}
+
+.experience-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  /* border: 1px solid #eee; */
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  /* border-color: #ff9900; */
+  border: 1px solid #ffcc00;
+}
+
+.experience-card h3 {
+  color: #ff9900;
+  margin-bottom: 5px;
+}
+
+.experience-date {
+  font-size: 0.9rem;
+  color: #ddd7d7;
+}
+
+.experience-card ul {
+color: white;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.experience-card li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
