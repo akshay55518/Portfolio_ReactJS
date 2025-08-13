@@ -3,6 +3,10 @@
   background: #1f1f1f;
 }
 
+.project-link {
+  text-decoration: none;
+}
+
 .section-title {
   text-align: center;
   font-size: 2rem;
