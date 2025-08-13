@@ -8,9 +8,7 @@ function NavBar() {
 
         {/* Logo */}
         <div className="logo">
-          <h1 className="h1-logo">
-            <span>Akshay.</span>
-          </h1>
+            <img src="./icon.png" alt="Akshay's Logo " className="h1-logo" />
         </div>
 
         {/* Navigation Menu */}

@@ -61,10 +61,12 @@
 
 .contact-form {
   flex: 1;
-  min-width: 500px;
+  width: 100%; 
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.05);
   padding: 25px;
   border-radius: 10px;
+  box-sizing: border-box; 
 }
 
 .form-group {
@@ -114,3 +116,16 @@
   transform: scale(1.07);
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .contact-form {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto; 
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 90%; 
+  }
+}

@@ -28,7 +28,7 @@ const projects = [
     problem:
       "The existing news portal required a backend panel to manage content, ads, user roles, and analytics efficiently.",
     approach:
-      "Developed and optimized multiple Django views for CRUD operations on news content, categories, and advertisements. Integrated JWT authentication, implemented pagination utilities (`fetch_paginated_data` & `build_pagination`), and improved database queries for performance. Added features like search, block IP, Google Analytics integration, and streamlined admin workflows.",
+      "Developed and optimized multiple Django views for CRUD operations on news content, categories, and advertisements. Integrated JWT authentication, implemented pagination utilities, and improved database queries for performance. Added features like search, block IP, Google Analytics integration, and streamlined admin workflows.",
     techStack: "Django Rest, MySQL, JavaScript, JWT",
     results:
       "Reduced content management time by 40%, improved backend performance, and enhanced admin usability with a clean and functional dashboard.",

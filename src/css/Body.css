@@ -30,13 +30,13 @@
 
 .content h1 {
   font-size: 6rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   -webkit-text-stroke: 2px white;
   color: transparent;
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 2.5s ease-in-out;
 }
 
 .content h1:hover {
@@ -65,7 +65,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
-  animation: fadeIn 2.5s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .arrow {
