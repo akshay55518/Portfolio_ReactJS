@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "../css/Contact.css";
 
+import { HiOutlineMail } from "react-icons/hi";
+import { IoLocation } from "react-icons/io5";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -25,6 +29,7 @@ const Contact = () => {
         <div className="contact-container">
           <div className="contact-info">
             <div className="info-item">
+              <HiOutlineMail />
               <i className="fas fa-envelope"></i>
               <a
                 href="mailto:akshay.e.elayadath@gmail.com"
@@ -34,12 +39,14 @@ const Contact = () => {
               </a>
             </div>
             <div className="info-item">
+              <FaPhoneAlt />
               <i className="fas fa-phone"></i>
               <a href="tel:+918075951964" className="contact-link">
                 Phone: +91 8075951964
               </a>
             </div>
             <div className="info-item">
+              <FaWhatsapp />
               <i className="fab fa-whatsapp"></i>
               <a
                 href="https://wa.me/918891326360"
@@ -51,6 +58,7 @@ const Contact = () => {
               </a>
             </div>
             <div className="info-item">
+              <IoLocation />
               <i className="fas fa-map-marker-alt"></i>
               <a
                 href="https://maps.app.goo.gl/KYsSktzMZqwefcMP8"

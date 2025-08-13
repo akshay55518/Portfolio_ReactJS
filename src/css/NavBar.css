@@ -36,16 +36,14 @@
     color: #ffcc00;
 }
 
-/* Navbar List */
 .navbar-list {
     display: flex;
-    gap: 25px;
+    gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Navbar Links */
 .navbar-link {
     color: white;
     text-decoration: none;
@@ -57,7 +55,6 @@
     transition: color 0.3s ease;
 }
 
-/* Underline hover effect */
 .navbar-link::after {
     content: "";
     position: absolute;
