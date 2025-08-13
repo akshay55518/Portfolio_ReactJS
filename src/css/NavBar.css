@@ -76,7 +76,36 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .navbar-list {
-        display: none; /* will add toggle later */
-    }
+  .navbar-list {
+    display: none; 
+  }
+
+  .h1-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -25px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .h1-logo span {
+    display: block;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+/* Desktop default */
+@media (min-width: 769px) {
+  .h1-logo {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    height: auto;
+    transition: all 0.4s ease-in-out; /* smooth revert */
+  }
 }

@@ -17,18 +17,6 @@ const Experience = () => {
         Experience
       </h2>
 
-      {/* Quest Innovatives Training */}
-      <div className="experience-card" data-aos="fade-right" data-aos-delay="200">
-        <h3>Quest Innovatives, Calicut – Python Trainee</h3>
-        <span className="experience-date">Jul 2024 – Jan 2025</span>
-        <ul>
-          <li>Completed intensive training in Python programming and problem-solving.</li>
-          <li>Built small-scale projects including CRUD applications using Django.</li>
-          <li>Gained practical exposure to REST API development and database handling.</li>
-          <li>Worked with Git for version control and collaborative coding.</li>
-        </ul>
-      </div>
-
       {/* Protec Internship */}
       <div className="experience-card" data-aos="fade-left" data-aos-delay="400">
         <h3>Protec, Kochi – Python Developer Intern</h3>
@@ -41,6 +29,18 @@ const Experience = () => {
             Implemented admin panel enhancements for <strong>Emalayalee</strong> news portal, including news management and analytics integration.
           </li>
           <li>Collaborated with team to debug, test, and deploy backend features.</li>
+        </ul>
+      </div>
+
+      {/* Quest Innovatives Training */}
+      <div className="experience-card" data-aos="fade-right" data-aos-delay="200">
+        <h3>Quest Innovatives, Calicut – Python Trainee</h3>
+        <span className="experience-date">Jul 2024 – Jan 2025</span>
+        <ul>
+          <li>Completed intensive training in Python programming and problem-solving.</li>
+          <li>Built small-scale projects including CRUD applications using Django.</li>
+          <li>Gained practical exposure to REST API development and database handling.</li>
+          <li>Worked with Git for version control and collaborative coding.</li>
         </ul>
       </div>
     </section>

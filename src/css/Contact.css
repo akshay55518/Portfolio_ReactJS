@@ -1,8 +1,6 @@
-/* Contact.css */
-
 .contact-section {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #1f1f1f, #1f1f1f); 
+  padding: 40px 20px;
+  background: #1f1f1f;
   color: white;
 }
 
@@ -36,6 +34,7 @@
   border-radius: 8px;
   margin-bottom: 20px;
   transition: 0.3s;
+  gap: 10px;
 }
 
 .info-item:hover {
@@ -43,10 +42,21 @@
   transform: translateY(-3px);
 }
 
-.info-item i {
-  font-size: 1.5rem;
-  color: #38bdf8;
-  margin-right: 15px;
+.icon {
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.info-item:hover {
+  transform: scale(1.01);
+  color: #ffb400;
+}
+
+.contact-link {
+  color: inherit;          
+  text-decoration: none;  
+  cursor: pointer;
+  transition: color 0.2s, text-decoration 0.2s;
 }
 
 .contact-form {
@@ -101,17 +111,6 @@
 
 .submit-btn:hover {
   background: #f8ba29;
-  transform: scale(1.10);
+  transform: scale(1.07);
 }
 
-.contact-link {
-  color: inherit;          
-  text-decoration: none;  
-  cursor: pointer;
-  transition: color 0.2s, text-decoration 0.2s;
-}
-
-.contact-link:hover {
-  color: #ffb400;          
-  text-decoration: underline;
-}

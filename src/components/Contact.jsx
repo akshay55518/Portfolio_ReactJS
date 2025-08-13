@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Contact.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import { HiOutlineMail } from "react-icons/hi";
 import { IoLocation } from "react-icons/io5";
@@ -12,25 +14,29 @@ const Contact = () => {
     message: "",
   });
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log(formData);
   };
 
   return (
     <section className="contact-section" id="contact">
       <div className="container">
-        <h2 className="section-title">Contact Me</h2>
+        <h2 className="section-title" data-aos="fade-down">
+          Contact Me
+        </h2>
         <div className="contact-container">
-          <div className="contact-info">
+          <div className="contact-info" data-aos="fade-right" data-aos-delay="200">
             <div className="info-item">
-              <HiOutlineMail />
-              <i className="fas fa-envelope"></i>
+              <span className="icon"><HiOutlineMail /></span>
               <a
                 href="mailto:akshay.e.elayadath@gmail.com"
                 className="contact-link"
@@ -39,15 +45,15 @@ const Contact = () => {
               </a>
             </div>
             <div className="info-item">
-              <FaPhoneAlt />
-              <i className="fas fa-phone"></i>
+              <span className="icon"><FaPhoneAlt /></span>
+              
               <a href="tel:+918075951964" className="contact-link">
                 Phone: +91 8075951964
               </a>
             </div>
             <div className="info-item">
-              <FaWhatsapp />
-              <i className="fab fa-whatsapp"></i>
+              <span className="icon"> <FaWhatsapp /></span>
+             
               <a
                 href="https://wa.me/918891326360"
                 target="_blank"
@@ -58,8 +64,8 @@ const Contact = () => {
               </a>
             </div>
             <div className="info-item">
-              <IoLocation />
-              <i className="fas fa-map-marker-alt"></i>
+              <span className="icon"><IoLocation />   </span>
+              
               <a
                 href="https://maps.app.goo.gl/KYsSktzMZqwefcMP8"
                 target="_blank"
@@ -70,7 +76,13 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+
+          <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
             <div className="form-group">
               <input
                 type="text"

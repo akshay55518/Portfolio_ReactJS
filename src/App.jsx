@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import  ScrollToTop from "./components/ScrollToTop"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Portfolio /> 
       <Projects /> 
       <Contact /> 
+      <ScrollToTop />
     </>
   );
 }

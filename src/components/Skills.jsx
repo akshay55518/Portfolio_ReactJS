@@ -5,7 +5,31 @@ import "aos/dist/aos.css";
 
 const Skills = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 1000, once: true });
+
+    // Animate circles when they come into view
+    const circles = document.querySelectorAll(".skill-circle svg circle:last-child");
+
+    const animateCircle = (circle) => {
+      const level = circle.dataset.level;
+      const radius = circle.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+      circle.style.strokeDasharray = circumference;
+      circle.style.strokeDashoffset = circumference - (circumference * level) / 100;
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCircle(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    circles.forEach((circle) => observer.observe(circle));
   }, []);
 
   const skillCategories = {
@@ -47,40 +71,41 @@ const Skills = () => {
 
   return (
     <section className="skills-section" id="skills">
-      <div className="container">
-        <h2 className="section-title" data-aos="fade-down">My Skills</h2>
-        <div className="skills-wrapper">
-          {Object.keys(skillCategories).map((category, i) => (
-            <div
-              className="skills-category"
-              key={i}
-              data-aos={
-                i % 3 === 0
-                  ? "fade-up-right"
-                  : i % 3 === 1
-                  ? "fade-up-left"
-                  : "fade-up"
-              }
-            >
-              <h3 className="category-title">{category}</h3>
-              {skillCategories[category].map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-info">
-                    <span>{skill.name}</span>
-                    <span className="skill-percent">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar" role="progressbar" aria-valuenow={skill.level} aria-valuemin="0" aria-valuemax="100">
-                    <div
-                      className="skill-progress"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
+      <h2 className="section-title" data-aos="fade-down">My Skills</h2>
+      {Object.keys(skillCategories).map((category, i) => (
+        <div
+          className="skills-category"
+          key={i}
+          data-aos={
+            i % 3 === 0
+              ? "fade-up-right"
+              : i % 3 === 1
+              ? "fade-up-left"
+              : "fade-up"
+          }
+        >
+          <h3 className="category-title">{category}</h3>
+          <div className="skills-circle-wrapper">
+            {skillCategories[category].map((skill, index) => (
+              <div className="skill-circle" key={index}>
+                <svg>
+                  <circle cx="60" cy="60" r="54"></circle>
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="54"
+                    data-level={skill.level}
+                  ></circle>
+                </svg>
+                <div className="skill-info">
+                  <h4>{skill.name}</h4>
+                  <p>{skill.level}%</p>
                 </div>
-              ))}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </section>
   );
 };

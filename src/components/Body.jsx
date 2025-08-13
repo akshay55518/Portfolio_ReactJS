@@ -18,10 +18,12 @@ const Body = () => {
 
       <div className="content">
         <h1>AKSHAY E</h1>
-        <p className="subtitle">Backend Developer</p>
+        <p className="subtitle">Python Developer</p>
         <a href="./resume.pdf" download className="resume-button">
           DOWNLOAD RESUME
+           <span className="arrow">⬇</span>
         </a>
+        
       </div>
     </section>
   );
