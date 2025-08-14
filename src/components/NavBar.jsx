@@ -24,7 +24,6 @@ function NavBar() {
           <li><a href="#contact" className="navbar-link">Contact</a></li>
         </ul>
       </nav>
-
       </div>
     </header>
   );
