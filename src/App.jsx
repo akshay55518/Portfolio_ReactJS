@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar";
 import Body from "./components/Body";
-import About from "./components/Abouts";
+import About from "./components/About";
 import Skills from "./components/Skills";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";

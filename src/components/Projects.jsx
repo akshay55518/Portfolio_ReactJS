@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/Projects.css";
@@ -35,40 +35,65 @@ const projects = [
   },
 ];
 
+// Modern Popup Component
+const Popup = ({ message, onClose }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="popup-overlay">
+      <div className="popup-box glass-effect">
+        <p>{message}</p>
+        <button onClick={onClose}>OK</button>
+      </div>
+    </div>
+  );
+};
+
 const ProjectsDetailed = () => {
+  const [popupMessage, setPopupMessage] = useState("");
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
+
+  const handleClick = (e, project) => {
+    if (!project.link) {
+      e.preventDefault();
+      setPopupMessage("Due to company policy, I am unable to share this code.");
+    }
+  };
 
   return (
     <section id="projects" className="section">
       <h2 className="section-title" data-aos="fade-down">
         Projects (Detailed)
       </h2>
+
       <div className="project-details">
         {projects.map((project, index) => (
           <div
-            className="project-card"
             key={index}
+            className="project-card"
             data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
             data-aos-delay={index * 100}
           >
-            <a
-              href={project.link || "#"}
-              className="project-link"
-              target={project.link ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              onClick={(e) => {
-                if (!project.link) {
-                  e.preventDefault(); // Prevent default navigation
-                  alert(
-                    "Due to company policy, I am unable to share this code."
-                  );
-                }
-              }}
-            >
-          <h3>{project.title}</h3>
-          </a>
+            <h3>
+              <a
+                href={project.link || "#"}
+                className="project-link"
+                target={project.link ? "_blank" : "_self"}
+                rel="noopener noreferrer"
+                onClick={(e) => handleClick(e, project)}
+              >
+                {project.title}
+              </a>
+            </h3>
             <p>
               <strong>Problem:</strong> {project.problem}
             </p>
@@ -84,6 +109,13 @@ const ProjectsDetailed = () => {
           </div>
         ))}
       </div>
+
+      {popupMessage && (
+        <Popup
+          message={popupMessage}
+          onClose={() => setPopupMessage("")}
+        />
+      )}
     </section>
   );
 };
