@@ -60,3 +60,28 @@
   color: #ffffff;
 }
 
+.portfolio-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px; /* gives it height so it can center */
+  flex-wrap: wrap;   /* keeps cards wrapping when there are items */
+}
+
+.no-portfolio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
