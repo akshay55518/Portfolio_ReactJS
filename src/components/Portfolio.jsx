@@ -18,12 +18,18 @@ const Portfolio = () => {
     { id: 7, title: "To-Do Apps", category: "Backend (Django)", description: "Simple to-do list web apps for personal task tracking.", link: "#" },
   ];
 
+  // Optional: sort them in your custom order like before
+  const order = ["Ekart", "Emalayalee Admin Panel", "Movie App"];
+  const sortedProjects = [...projects].sort(
+    (a, b) => order.indexOf(a.title) - order.indexOf(b.title)
+  );
+
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="container">
         <h2 className="section-title" data-aos="fade-down">My Portfolio</h2>
         <div className="portfolio-grid">
-          {projects.map((project, index) => (
+          {sortedProjects.map((project, index) => (
             <div
               className="portfolio-card"
               key={project.id}
