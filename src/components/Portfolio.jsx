@@ -6,35 +6,30 @@ import "../css/Portfolio.css";
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_BASE = "https://portfolio-backend-lqmi.onrender.com";
 
+  const API_BASE = "https://portfolio-backend-lqmi.onrender.com/api";
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
 
-    fetch(`${API_BASE}/api/portfolio/`)
-      .then(res => res.json())
+    fetch(`${API_BASE}/portfolio/`)
+      .then((res) => res.json())
       .then((data) => {
-        const order = ["Ekart", "Emalayalee", "Movie App"]; // Change to your titles
+        // Custom order
+        const order = ["Ekart", "Emalayalee", "Movie App"];
         const sortedData = [...data].sort(
           (a, b) => order.indexOf(a.title) - order.indexOf(b.title)
         );
 
         setPortfolio(sortedData.length ? sortedData : data);
         setLoading(false);
-        AOS.refresh(); 
+        AOS.refresh();
       })
       .catch((err) => {
         console.error("Error fetching projects:", err);
         setLoading(false);
       });
   }, []);
-
-  // Optional: sort them in your custom order like before
-  const order = ["Ekart", "Emalayalee Admin Panel", "Movie App"];
-  const sortedProjects = [...projects].sort(
-    (a, b) => order.indexOf(a.title) - order.indexOf(b.title)
-  );
 
   return (
     <section className="portfolio-section" id="portfolio">
