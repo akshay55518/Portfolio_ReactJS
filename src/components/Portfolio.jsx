@@ -30,6 +30,12 @@ const Portfolio = () => {
       });
   }, []);
 
+  // Optional: sort them in your custom order like before
+  const order = ["Ekart", "Emalayalee Admin Panel", "Movie App"];
+  const sortedProjects = [...projects].sort(
+    (a, b) => order.indexOf(a.title) - order.indexOf(b.title)
+  );
+
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="container">
