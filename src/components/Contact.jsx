@@ -14,6 +14,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [status, setStatus] = useState("");
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -22,9 +24,35 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // ✅ Define API_BASE once (outside handleSubmit)
+  const API_BASE =
+    process.env.NODE_ENV === "production"
+      ? "https://portfolio-backend-lqmi.onrender.com"
+      : "http://127.0.0.1:8000/api";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch(`${API_BASE}/contact/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("⚠️ Error sending message.");
+    }
   };
 
   return (
@@ -34,26 +62,26 @@ const Contact = () => {
           Contact Me
         </h2>
         <div className="contact-container">
-          <div className="contact-info" data-aos="fade-right" data-aos-delay="200">
+          {/* Contact Info */}
+          <div
+            className="contact-info"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             <div className="info-item">
               <span className="icon"><HiOutlineMail /></span>
-              <a
-                href="mailto:akshay.e.elayadath@gmail.com"
-                className="contact-link"
-              >
+              <a href="mailto:akshay.e.elayadath@gmail.com" className="contact-link">
                 Email: akshay.e.elayadath@gmail.com
               </a>
             </div>
             <div className="info-item">
               <span className="icon"><FaPhoneAlt /></span>
-              
               <a href="tel:+918075951964" className="contact-link">
                 Phone: +91 8075951964
               </a>
             </div>
             <div className="info-item">
-              <span className="icon"> <FaWhatsapp /></span>
-             
+              <span className="icon"><FaWhatsapp /></span>
               <a
                 href="https://wa.me/918891326360"
                 target="_blank"
@@ -64,8 +92,7 @@ const Contact = () => {
               </a>
             </div>
             <div className="info-item">
-              <span className="icon"><IoLocation />   </span>
-              
+              <span className="icon"><IoLocation /></span>
               <a
                 href="https://maps.app.goo.gl/KYsSktzMZqwefcMP8"
                 target="_blank"
@@ -77,6 +104,7 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Contact Form */}
           <form
             className="contact-form"
             onSubmit={handleSubmit}
@@ -115,6 +143,7 @@ const Contact = () => {
             <button type="submit" className="submit-btn">
               Send Message
             </button>
+            {status && <p className="status-message">{status}</p>}
           </form>
         </div>
       </div>

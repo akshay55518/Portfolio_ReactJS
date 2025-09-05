@@ -10,7 +10,9 @@ import Education from "./components/Education";
 import  ScrollToTop from "./components/ScrollToTop"
 
 function App() {
+  
   return (
+    
     <>
       <NavBar />
       <Body /> 
