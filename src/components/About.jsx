@@ -10,7 +10,7 @@ const About = () => {
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
-    fetch(`http://${API_BASE}/api/about/`) // Django REST API
+    fetch(`${API_BASE}/api/about/`) // Django REST API
       .then((res) => res.json())
       .then((data) => setAbout(data));
   }, []);
