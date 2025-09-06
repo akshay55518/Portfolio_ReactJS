@@ -6,10 +6,11 @@ import "../css/About.css";
 
 const About = () => {
   const [about, setAbout] = useState(null);
+    const API_BASE = "https://portfolio-backend-lqmi.onrender.com";
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
-    fetch("http://127.0.0.1:8000/api/about/") // Django REST API
+    fetch("http://${API_BASE}/api/about/") // Django REST API
       .then((res) => res.json())
       .then((data) => setAbout(data));
   }, []);
