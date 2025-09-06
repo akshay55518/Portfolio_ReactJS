@@ -6,16 +6,38 @@ import "../css/About.css";
 
 const About = () => {
   const [about, setAbout] = useState(null);
-    const API_BASE = "https://portfolio-backend-lqmi.onrender.com";
+  const API_BASE = "https://portfolio-backend-lqmi.onrender.com";
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
-    fetch(`${API_BASE}/api/about/`) // Django REST API
+    fetch(`${API_BASE}/api/about/`)
       .then((res) => res.json())
-      .then((data) => setAbout(data));
+      .then((data) => setAbout(data))
+      .catch((err) => console.error("Error fetching About data:", err));
   }, []);
 
-  if (!about) return <p>Loading...</p>;
+  if (!about)
+    return (
+      <section className="about-section" id="about">
+        <div className="container">
+          <h2 className="section-title" data-aos="fade-up">
+            About Me
+          </h2>
+          <div className="about-content">
+            {/* Left loading card */}
+            <div className="about-left loading-card glass-effect" data-aos="fade-right">
+              <div className="loading-spinner"></div>
+              <p>Loading About Section...</p>
+            </div>
+            {/* Right loading card */}
+            <div className="about-text loading-card glass-effect" data-aos="fade-left">
+              <div className="loading-spinner"></div>
+              <p>Loading content...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
 
   return (
     <section className="about-section" id="about">
@@ -24,6 +46,7 @@ const About = () => {
           About Me
         </h2>
         <div className="about-content">
+          {/* Left: Profile + Details */}
           <div className="about-left" data-aos="fade-right">
             <div className="about-image">
               <img src="/profile.jpg" alt={about.name} />
@@ -55,6 +78,7 @@ const About = () => {
             </div>
           </div>
 
+          {/* Right: About Text */}
           <div className="about-text" data-aos="fade-left">
             <h3>{about.role}</h3>
             <p>{about.description1}</p>
