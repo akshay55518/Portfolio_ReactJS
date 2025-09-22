@@ -6,17 +6,24 @@ import "../css/About.css";
 
 const About = () => {
   const [about, setAbout] = useState(null);
+  const [loading, setLoading] = useState(true);
   const API_BASE = "https://portfolio-backend-lqmi.onrender.com";
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
     fetch(`${API_BASE}/api/about/`)
       .then((res) => res.json())
-      .then((data) => setAbout(data))
-      .catch((err) => console.error("Error fetching About data:", err));
+      .then((data) => {
+        setAbout(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching About data:", err);
+        setLoading(false);
+      });
   }, []);
 
-  if (!about)
+  if (loading) {
     return (
       <section className="about-section" id="about">
         <div className="container">
@@ -24,20 +31,21 @@ const About = () => {
             About Me
           </h2>
           <div className="about-content">
-            {/* Left loading card */}
-            <div className="about-left loading-card glass-effect" data-aos="fade-right">
+            {/* Left loading placeholder */}
+            <div className="loading-card glass-effect" data-aos="fade-right">
               <div className="loading-spinner"></div>
-              <p>Loading About Section...</p>
+              <p>Loading Profile...</p>
             </div>
-            {/* Right loading card */}
-            <div className="about-text loading-card glass-effect" data-aos="fade-left">
+            {/* Right loading placeholder */}
+            <div className="loading-card glass-effect" data-aos="fade-left">
               <div className="loading-spinner"></div>
-              <p>Loading content...</p>
+              <p>Fetching About Info...</p>
             </div>
           </div>
         </div>
       </section>
     );
+  }
 
   return (
     <section className="about-section" id="about">
