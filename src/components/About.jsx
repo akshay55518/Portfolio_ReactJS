@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import Loading from "./Loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/About.css";
@@ -31,16 +32,7 @@ const About = () => {
             About Me
           </h2>
           <div className="about-content">
-            {/* Left loading placeholder */}
-            <div className="loading-card glass-effect" data-aos="fade-right">
-              <div className="loading-spinner"></div>
-              <p>Loading Profile...</p>
-            </div>
-            {/* Right loading placeholder */}
-            <div className="loading-card glass-effect" data-aos="fade-left">
-              <div className="loading-spinner"></div>
-              <p>Fetching About Info...</p>
-            </div>
+            <Loading message="Loading Profile..." />
           </div>
         </div>
       </section>
@@ -61,28 +53,63 @@ const About = () => {
             </div>
 
             <ul className="about-details">
-              <li><strong>Name:</strong> {about.name}</li>
-              <li><strong>Email:</strong> {about.email}</li>
-              <li><strong>Mobile:</strong> {about.mobile}</li>
-              <li><strong>Location:</strong> {about.location}</li>
+              <li>
+                <strong>Name:</strong> &nbsp; {about.name}
+              </li>
+              <li>
+                <strong>Email:</strong> &nbsp; {about.email}
+              </li>
+              <li>
+                <strong>Mobile:</strong> &nbsp; {about.mobile}
+              </li>
+              <li>
+                <strong>Location:</strong> &nbsp; {about.location}
+              </li>
             </ul>
 
-            <div className="social-icons" data-aos="fade-up" data-aos-delay="200">
-              {about.instagram && (
-                <a href={about.instagram} target="_blank" rel="noopener noreferrer">
-                  <FaInstagram />
-                </a>
-              )}
-              {about.github && (
-                <a href={about.github} target="_blank" rel="noopener noreferrer">
-                  <FaGithub />
-                </a>
-              )}
-              {about.linkedin && (
-                <a href={about.linkedin} target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin />
-                </a>
-              )}
+            <div
+              className="social-icons"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ul>
+                <li>
+                  {about.instagram && (
+                    <a
+                      href={about.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-name="Instagram"
+                    >
+                      <FaInstagram />
+                    </a>
+                  )}
+                </li>
+                <li>
+                  {about.github && (
+                    <a
+                      href={about.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-name="GitHub"
+                    >
+                      <FaGithub />
+                    </a>
+                  )}
+                </li>
+                <li>
+                  {about.linkedin && (
+                    <a
+                      href={about.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-name="LinkedIn"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  )}
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -92,7 +119,12 @@ const About = () => {
             <p>{about.description1}</p>
             <p>{about.description2}</p>
 
-            <a href="#contact" className="about-button" data-aos="zoom-in" data-aos-delay="200">
+            <a
+              href="#contact"
+              className="about-button"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
               Let’s Work Together
             </a>
           </div>

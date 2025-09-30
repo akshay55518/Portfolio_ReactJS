@@ -88,23 +88,65 @@
     /* width: 120px; */
 }
 
-.social-icons {
-    margin: 25px 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* Social media icons */
+.social-icons ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons li {
+  position: relative;
 }
 
 .social-icons a {
-    font-size: 1.6rem;
-    color: #ffcc00;
-    transition: all 0.3s ease;
+  font-size: 30px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a[data-name="GitHub"] {
+  color: #000000; 
+}
+
+.social-icons a[data-name="Instagram"] {
+  color: #E1306C; 
+}
+
+.social-icons a[data-name="LinkedIn"] {
+  color:#0077b5; 
 }
 
 .social-icons a:hover {
-    color: #ff6600;
-    transform: scale(1.2) rotate(5deg);
+    transform: translateX(30px);
 }
+
+/* Tooltip styling */
+.social-icons a::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px);
+}
+
 
 /* Button */
 .about-button {
@@ -138,35 +180,6 @@
     }
 }
 
-/* Loading card for About section */
-.loading-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 250px;
-  padding: 30px 20px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  color: #0d6efd;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-/* Spinner */
-.loading-spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #0d6efd;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
 
 /* Fade-in animation */
 @keyframes fadeIn {

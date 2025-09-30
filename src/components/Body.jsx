@@ -17,12 +17,24 @@ const Body = () => {
       </video>
 
       <div className="content">
-        <h1>AKSHAY E</h1>
-        <p className="subtitle">Python Developer</p>
+          <div class="disappear">
+            <span>A</span>
+            <span>K</span>
+            <span>S</span>
+            <span>H</span>
+            <span>A</span>
+            <span>Y</span>
+            <span>&nbsp;</span>
+            <span>E</span>
+          </div>
+
+        <div className="subcontent">
+          <p className="subtitle">Python Developer</p>
+
         <a href="./resume.pdf" download className="resume-button">
-          DOWNLOAD RESUME
-           <span className="arrow">⬇</span>
+          DOWNLOAD RESUME <span className="arrow">⬇</span>
         </a>
+        </div>
         
       </div>
     </section>
